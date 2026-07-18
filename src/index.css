@@ -1,0 +1,60 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@theme {
+  --color-bg: #12100e;
+  --color-surface: #1a1613;
+  --color-surface-2: #211c18;
+  --color-line: #332c25;
+  --color-ink: #f1ece5;
+  --color-ink-dim: #9c9086;
+
+  --color-accent: #c1502e;
+  --color-accent-dim: #8a3a22;
+  --color-secure: #6f9481;
+  --color-warn: #cf9a44;
+  --color-info: #7c9cae;
+
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'Source Sans 3', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0;
+  animation: reveal 0.5s ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-blink, .reveal {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
